@@ -26,9 +26,9 @@ SECRET_KEY = config("SECRET_KEY")
 DEBUG = config("DEBUG", default=False, cast=bool)
 
 ALLOWED_HOSTS = [
-    h.strip() 
-    for h in config("ALLOWED_HOSTS", default="").split(",") 
-    if h.strip()
+    "django-cbv-todo.onrender.com",
+    "127.0.0.1",
+    "localhost",
 ]
 
 # Application definition
