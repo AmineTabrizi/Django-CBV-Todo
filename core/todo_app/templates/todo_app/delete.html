@@ -1,0 +1,122 @@
+{% extends 'base.html' %}
+
+{% block title %}Delete Task{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        background: radial-gradient(circle at 30% 30%, #1e1b4b, #020617 70%);
+        min-height: 100vh;
+    }
+
+    .confirm-wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .confirm-card {
+        width: 420px;
+        padding: 50px 40px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+        text-align: center;
+    }
+
+    .warning-icon {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px auto;
+        font-size: 32px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 15px 35px rgba(239,68,68,0.5);
+    }
+
+    .confirm-title {
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 15px;
+    }
+
+    .confirm-text {
+        color: rgba(255,255,255,0.6);
+        margin-bottom: 30px;
+        font-size: 14px;
+    }
+
+    .btn-danger-custom {
+        background: linear-gradient(135deg, #ef4444, #dc2626);
+        border: none;
+        border-radius: 14px;
+        padding: 12px;
+        font-weight: 600;
+        color: white;
+        width: 100%;
+        transition: 0.3s ease;
+    }
+
+    .btn-danger-custom:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(239,68,68,0.4);
+    }
+
+    .btn-cancel {
+        margin-top: 15px;
+        display: block;
+        color: rgba(255,255,255,0.6);
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+    .btn-cancel:hover {
+        color: white;
+    }
+
+    .task-name {
+        color: #ef4444;
+        font-weight: 600;
+    }
+</style>
+
+<div class="confirm-wrapper">
+    <div class="confirm-card">
+
+        <div class="warning-icon">
+            !
+        </div>
+
+        <h3 class="confirm-title">Delete Task</h3>
+
+        <p class="confirm-text">
+            Are you sure you want to delete
+            <span class="task-name">"{{ Task.title }}"</span> ?
+            <br>
+            This action cannot be undone.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="btn btn-danger-custom">
+                Yes, Delete
+            </button>
+        </form>
+
+        <a href="{% url 'task_list' %}" class="btn-cancel">
+            Cancel
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}

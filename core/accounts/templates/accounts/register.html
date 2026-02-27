@@ -1,0 +1,131 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        background: radial-gradient(circle at 10% 20%, #0f172a, #020617 70%);
+        min-height: 100vh;
+    }
+
+    .auth-wrapper {
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .auth-card {
+        width: 420px;
+        padding: 50px 40px;
+        border-radius: 28px;
+        background: rgba(255,255,255,0.05);
+        backdrop-filter: blur(25px);
+        border: 1px solid rgba(255,255,255,0.08);
+        box-shadow: 0 30px 80px rgba(0,0,0,0.5);
+        position: relative;
+    }
+
+    .brand-circle {
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 25px auto;
+        font-size: 26px;
+        color: white;
+        font-weight: bold;
+        box-shadow: 0 10px 30px rgba(99,102,241,0.5);
+    }
+
+    .auth-title {
+        text-align: center;
+        color: #fff;
+        font-weight: 600;
+        margin-bottom: 35px;
+        letter-spacing: -0.5px;
+    }
+
+    .form-control {
+        background: rgba(255,255,255,0.08);
+        border: none;
+        border-radius: 14px;
+        padding: 14px 16px;
+        color: #fff;
+        margin-bottom: 15px;
+    }
+
+    .form-control:focus {
+        background: rgba(255,255,255,0.12);
+        box-shadow: 0 0 0 2px #6366f1;
+        color: #fff;
+    }
+
+    .btn-auth {
+        width: 100%;
+        padding: 12px;
+        border-radius: 14px;
+        border: none;
+        font-weight: 600;
+        background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        transition: 0.3s ease;
+        color: white;
+    }
+
+    .btn-auth:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 25px rgba(99,102,241,0.4);
+    }
+
+    .auth-footer {
+        text-align: center;
+        margin-top: 25px;
+        color: rgba(255,255,255,0.6);
+        font-size: 14px;
+    }
+
+    .auth-footer a {
+        color: #8b5cf6;
+        text-decoration: none;
+    }
+
+    .auth-footer a:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<div class="auth-wrapper">
+    <div class="auth-card">
+
+        <div class="brand-circle">
+            T
+        </div>
+
+        <h3 class="auth-title">Create Account</h3>
+
+        <form method="POST" action="{% url 'accounts:register' %}">
+            {% csrf_token %}
+
+            <input type="text" name="username" class="form-control" placeholder="Username">
+
+            <input type="password" name="password1" class="form-control" placeholder="Password">
+
+            <input type="password" name="password2" class="form-control" placeholder="Repeat Password">
+
+            <button type="submit" class="btn btn-auth">Register</button>
+        </form>
+
+        <div class="auth-footer">
+            Already have an account?
+            <a href="{% url 'accounts:login' %}">Sign in</a>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}
