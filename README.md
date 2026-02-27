@@ -1,51 +1,58 @@
-# Django CBV Todo App
+# 📝 Django CBV Todo App
 
-A clean and structured Todo application built with Django using Class-Based Views (CBV).  
-This project demonstrates best practices for Django project structure, reusable apps, and modern development workflow.
+A full-featured Todo application built with Django using Class-Based Views (CBV), authentication system, and production deployment on Render.
 
 ---
 
-## 🚀 Features
+## 🌐 Live Demo
 
-- Create, Update, Delete Todos
-- Class-Based Views (ListView, CreateView, UpdateView, DeleteView)
-- Django Forms
-- Clean project structure
-- Ready for production configuration
-- Git & environment separation
+👉 https://django-cbv-todo.onrender.com
+
+---
+
+## 🔑 Demo Admin Access
+
+You can access the admin panel here:
+
+👉 https://django-cbv-todo.onrender.com/admin
+
+**Username:** demo_admin  
+**Password:** Demo12345!
+
+> Note: This is a demo project for portfolio purposes.
+
+---
+
+## ✨ Features
+
+- User Authentication (Register / Login / Logout)
+- Task CRUD (Create, Update, Delete)
+- Mark tasks as completed
+- Class-Based Views (CBV)
+- Production-ready configuration
+- Environment variables support
+- Automatic superuser creation on deploy
+- Deployed on Render
 
 ---
 
 ## 🛠 Tech Stack
 
-- Python 3.x
-- Django 4.x / 5.x
-- SQLite (default)
-- Class-Based Views
+- Python
+- Django
+- SQLite (for demo deployment)
+- Gunicorn
+- Render (Cloud Hosting)
 
-## ⚙️ Installation
+---
 
-bash
-# 1️⃣ Clone the repository
-git clone https://github.com/AmineTabrizi/django-cbv-todo.git
-cd django-cbv-todo
+## 🚀 Installation (Local Setup)
 
-# 2️⃣ Create virtual environment
+```bash
+git clone https://github.com/your-username/Django-CBV-Todo.git
+cd Django-CBV-Todo
 python -m venv venv
-
-# Activate virtual environment
-# Windows
-venv\Scripts\activate
-# macOS / Linux
-source venv/bin/activate
-
-# 3️⃣ Install dependencies
+source venv/bin/activate  # On Windows: venv\Scripts\activate
 pip install -r requirements.txt
-
-# 4️⃣ Apply migrations & run server
 python manage.py migrate
 python manage.py runserver
-
-
-Open your browser and go to:
-http://127.0.0.1:8000
